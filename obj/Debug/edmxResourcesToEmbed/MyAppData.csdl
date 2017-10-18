@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyAppDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MyAppDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="MyAppDataModel.Admin" />
+    <EntitySet Name="Products" EntityType="MyAppDataModel.Product" />
+    <EntitySet Name="Restaurants" EntityType="MyAppDataModel.Restaurant" />
+    <FunctionImport Name="Getprodpic" ReturnType="Collection(MyAppDataModel.Getprodpic_Result)" />
+    <FunctionImport Name="Procedure1" ReturnType="Collection(MyAppDataModel.Procedure1_Result)" />
+    <EntitySet Name="Pics1" EntityType="MyAppDataModel.Pics" />
+    <FunctionImport Name="Getprodpic1" ReturnType="Collection(MyAppDataModel.Getprodpic1_Result)" />
+    <FunctionImport Name="Procedurepic" ReturnType="Collection(MyAppDataModel.Procedurepic_Result)" />
+    <EntitySet Name="Customerpayments" EntityType="MyAppDataModel.Customerpayment" />
+    <EntitySet Name="Orders" EntityType="MyAppDataModel.Order" />
+    <FunctionImport Name="GetOrders" ReturnType="Collection(MyAppDataModel.GetOrders_Result)" />
+    <EntitySet Name="ResImages" EntityType="MyAppDataModel.ResImage" />
+    <FunctionImport Name="ProcedureResimage" ReturnType="Collection(MyAppDataModel.ProcedureResimage_Result)" />
+    <FunctionImport Name="RestData" ReturnType="Collection(MyAppDataModel.RestData_Result)" />
+    <EntitySet Name="Drivers" EntityType="MyAppDataModel.Driver" />
+    <FunctionImport Name="DriversGetsOrders" ReturnType="Collection(MyAppDataModel.DriversGetsOrders_Result)" />
+    <EntitySet Name="tblCustomers" EntityType="MyAppDataModel.tblCustomer" />
+    <FunctionImport Name="DriversGetsOrders1" ReturnType="Collection(MyAppDataModel.DriversGetsOrders1_Result)" />
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Admin_ID" />
+    </Key>
+    <Property Name="Admin_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProId" />
+    </Key>
+    <Property Name="ProId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Productname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Double" />
+  </EntityType>
+  <EntityType Name="Restaurant">
+    <Key>
+      <PropertyRef Name="ResId" />
+    </Key>
+    <Property Name="ResId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Resname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Type_Of_Cuisine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Do_You_Currently_OfferDelivery" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="Getprodpic_Result">
+    <Property Type="String" Name="Productname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProductDescription" Nullable="true" />
+    <Property Type="Double" Name="Price" Nullable="true" />
+    <Property Type="Binary" Name="Images" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Procedure1_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Binary" Name="Images" Nullable="true" />
+    <Property Type="Int32" Name="ProId" Nullable="true" />
+    <Property Type="Int32" Name="ProId1" Nullable="false" />
+    <Property Type="String" Name="Productname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProductDescription" Nullable="true" />
+    <Property Type="String" Name="ProductType" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="Price" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Pics">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProId" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="Getprodpic1_Result">
+    <Property Type="String" Name="Productname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProductDescription" Nullable="true" />
+    <Property Type="Double" Name="Price" Nullable="true" />
+    <Property Type="Binary" Name="Image" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Procedurepic_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Binary" Name="Image" Nullable="true" />
+    <Property Type="Int32" Name="ProId" Nullable="true" />
+    <Property Type="Int32" Name="ProId1" Nullable="false" />
+    <Property Type="String" Name="Productname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProductDescription" Nullable="true" />
+    <Property Type="String" Name="ProductType" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="Price" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Customerpayment">
+    <Key>
+      <PropertyRef Name="PayId" />
+    </Key>
+    <Property Name="PayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BankName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Card_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CVV" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrdId" />
+    </Key>
+    <Property Name="OrdId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="totalPrice" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustId" Type="Int32" Nullable="false" />
+    <Property Name="OrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeliveryStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="GetOrders_Result">
+    <Property Type="Int32" Name="OrdId" Nullable="false" />
+    <Property Type="String" Name="Productname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProductDescription" Nullable="true" />
+    <Property Type="String" Name="totalPrice" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <EntityType Name="ResImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ResId" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="ProcedureResimage_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Binary" Name="Image" Nullable="true" />
+    <Property Type="Int32" Name="ResId" Nullable="true" />
+    <Property Type="Int32" Name="ResId1" Nullable="false" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Type_Of_Cuisine" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Do_You_Currently_OfferDelivery" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="RestData_Result">
+    <Property Type="String" Name="Resname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="50" />
+    <Property Type="Binary" Name="Image" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="DriverId" />
+    </Key>
+    <Property Name="DriverId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="DriversGetsOrders_Result">
+    <Property Type="Int32" Name="OrdId" Nullable="false" />
+    <Property Type="Int32" Name="CustId" Nullable="false" />
+    <Property Type="String" Name="totalPrice" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DeliveryStatus" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="tblCustomer">
+    <Key>
+      <PropertyRef Name="CustId" />
+    </Key>
+    <Property Name="CustId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="DriversGetsOrders1_Result">
+    <Property Type="Int32" Name="OrdId" Nullable="false" />
+    <Property Type="Int32" Name="CustId" Nullable="false" />
+    <Property Type="String" Name="totalPrice" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CustomerAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OrderStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DeliveryStatus" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

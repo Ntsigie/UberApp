@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html ng-app="SignIn">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Services.js"></script>
+    <script src="../Demo.js"></script>
+
+
+
+</head>
+<body ng-controller="ViewOrdersController">
+    <div class="col-md-6 col-md-offset-3">
+        <input type="search" placeholder="Search for orders" align="center" class="form-control input-lg" ng-model="txtFilter" />
+        <br />
+    </div>
+
+    <form>
+        <table class="table table-hover table-striped" cellspacing="40" align="center" style="width:95%">
+            <thead class="grid-top panel">
+                <tr>
+                    <th>ORDERID</th>
+                    <th>EMAIL</th>
+                    <th>TOTALPRICE</th>
+                    <th>CustID</th>
+                    <th>Address</th>
+                    <th>OrderStatus</th>
+                    <th>DeliveryStatus</th>
+
+
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ord in Order| filter : txtFilter">
+                    <td>{{ord.OrdId}}</td>                    
+                    <td>{{ord.Email}}</td>                                    
+                    <td><h4>{{ord.totalPrice| currency : "R"}}</h4></td>
+                    <td>{{ord.CustId}}</td>
+                    <td>{{ord.CustomerAddress}}</td>  
+                    <td>{{ord.OrderStatus}}</td>
+                    <td>{{ord.DeliveryStatus}}</td>  
+
+
+                    <!--<td><button ng-click="addItem(prd)" class="btn btn-success">AddToCart</button></td>-->
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+
+
+
+
+
+</body>
+</html>
+

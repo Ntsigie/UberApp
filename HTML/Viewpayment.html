@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<h2 class="text-center">View All Payments</h2>
+<html ng-app="SignIn">
+<head>
+    <title>View Products</title>
+    <meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Services.js"></script>
+    <script src="../Demo.js"></script>
+
+    
+
+</head>
+
+<body ng-controller="ViewpaymentController">
+
+    <div class="col-md-6 col-md-offset-3">
+        <input type="search" placeholder="Search for payments" align="center" class="form-control input-lg" ng-model="txtFilter" />
+        <br />
+    </div>
+
+    <form>
+        <table class="table table-hover table-striped" cellspacing="40" align="center" style="width:95%">
+            <thead class="grid-top panel">
+                <tr>
+                    <th>PAYID</th>       
+                    <th>BANK NAME</th>
+                    <th>CARD NUMBER</th>
+                    <th>CVV</th>
+                    <th>CUSTID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="pay in Customerpayment| filter : txtFilter">
+                    <td>{{pay.PayId}}</td>
+                    <td>{{pay.BankName}}</td>
+                    <td>{{pay.Card_Number}}</td>
+                    <td>{{pay.CVV}}</td>
+                    <td>{{pay.CustId}}</td>
+                    <td><h4>{{prd.Price | currency : "R"}}</h4></td>
+                    <!--<td><button ng-click="addItem(prd)" class="btn btn-success">AddToCart</button></td>-->
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+</body>
+</html>

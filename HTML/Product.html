@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<h2 class="text-center ">Add Product</h2>
+<head>
+    <title>Add Product</title>
+    <meta charset="utf-8" />
+
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../Services.js"></script>
+    <script src="../Demo.js"></script>
+    
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div ng-controller="AddProductController">
+                <form>
+
+                    <div class="form-group">
+                        <label for="Productname">Productname</label>
+                        <input type="text" ng-model="Productname" class="form-control input-lg" placeholder="Productname" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ProductDescription">ProductDescription</label>
+                        <input type="text" ng-model="ProductDescription" class="form-control input-lg" placeholder="ProductDescription" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ProductType">ProductType</label>
+                        <input list="ProductTypee" ng-model="ProductType" name="ProductType" class="form-control input-lg" placeholder="Select one option" />
+                        <datalist id="ProductType">
+                            <select name="ProductType">
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Desserts">Desserts</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </datalist>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="Price">Price</label>
+                        <input type="text" ng-model="Price" class="form-control input-lg" placeholder="Price" />
+                    </div>
+
+                  
+                    <div>
+                        <button ng-click="AddPro ()" class="btn btn-info form-control input-lg">AddProduct </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+

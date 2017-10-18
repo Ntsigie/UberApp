@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html ng-app="SignIn">
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Services.js"></script>
+    <script src="Demo.js"></script>
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><font color="black"> <b>UBER</b> </font><font color="Brown">EATS </font></a>
+            </div>
+
+
+            <ul class="nav navbar-nav" ng-hide="!currentUser">
+
+                <li><a href="#!Profile" class="text-right text-danger">Profile</a></li>
+
+                <li><a href="#!ShoppingCart" class="text-right text-danger">Shopping Cart <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                <li><a href="#!ViewCart" class="text-right text-danger">ViewCart</a></li>
+                <li><a href="#!CustomerPayment" class="text-right text-danger">CustomerPayment</a></li>
+                <li><a href="#!Order" class="text-right text-danger">Order</a></li>
+
+
+            </ul>
+
+
+            <ul class="nav navbar-nav navbar-right" ng-show="!currentUser">
+                <li><a href="#!Search" class="text-center text-danger">Search Restuarant </a></li>
+                <li><a href="#!Add" class="text-right text-danger"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+                <li><a href="#!Login" class="text-right text-danger"><span class="glyphicon glyphicon-log-in"></span>SignIn</a></li>
+                <li><a href="#!Admin" class="text-right text-danger"><span class="glyphicon glyphicon-picture"></span>Admin Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+    <div ng-view>
+
+
+
+    </div>
+
+
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<h2 class="text-center">Customer Payment</h2>
+<html ng-app="SignIn">
+<head>
+    <title>Customer payment Details</title>
+	<meta charset="utf-8" />
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Services.js"></script>
+    <script src="../Demo.js"></script>
+
+</head>
+<body ng-controller="CustomerPaymentController">
+    <div>
+        <form>
+            <div class="form-group">
+                <label for="inputName">BankName</label>
+                <input type="text" ng-model="BankName" class="form-control input-lg" placeholder="e.g Capitec" formmethod="post">
+            </div>
+            <div class="form-group">
+                <label for="inputName">Card_Number</label>
+                <input type="text" ng-model="Card_Number" maxlength="16" class="form-control input-lg" placeholder="7894-4569-1236-4567" formmethod="post">
+            </div>
+
+            <div class="form-group">
+                <label for="inputName">CVV</label>
+                <input type="CardVerificationValue" ng-model="CVV" maxlength="3" class="form-control input-lg" placeholder="043" formmethod="post">
+            </div>
+            <div class="form-group">
+                <label for="inputName">CustId</label>
+                <input type="CustId" ng-model="CustId" class="form-control input-lg" placeholder="CustId" formmethod="post" disabled>
+            </div>
+
+            <button ng-click="AdPay()" class="btn btn-info form-control input-lg">Submit</button>
+        </form>
+     
+    </div>
+
+
+</body>
+</html>
+
+

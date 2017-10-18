@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<h2 class="text-center">Manage Profile</h2>
+<html  ng-app="SignIn">
+
+<head>
+    <title>Manage Profile</title>
+    <meta charset="utf-8" />
+   
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+      <script src="../Services.js"></script>
+    <script src="../Demo.js"></script>            
+</head>
+
+    <body ng-controller="EditCustomerController">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div>
+                    <form>
+                        <div class="form-group">
+                            <label for="inputEmail">CustId</label>
+                            <input type="text" value="CustId" ng-model="CustId" class="form-control input-lg" placeholder="CustId" disabled />
+                        </div>
+                        <div class="form-group">
+                            <label for="Firstname">Firstname</label>
+                            <input type="text" value="Firstname" ng-model="Firstname" class="form-control input-lg" placeholder="Firstname" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Lastname">Lastname</label>
+                            <input type="text" ng-model="Lastname" class="form-control input-lg" placeholder="Lastname" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Email">Email</label>
+                            <input type="text" ng-model="Email" class="form-control input-lg" placeholder="Email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                            <input type="Password" ng-model="Password" class="form-control input-lg" placeholder="Password" disabled />
+                        </div>
+
+                    </form>
+                </div>
+                <br>
+                <div>
+                    <button ng-click="EditCustomer()" class="btn btn-info form-control input-lg">Update</button>
+                </div>
+            </div>
+        </div>
+       
+    
+    
+    </body> 
+
+
+</html>

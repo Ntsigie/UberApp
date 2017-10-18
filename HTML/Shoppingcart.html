@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html ng-app="SignIn">
+<head>
+    <title>Shopping Cart</title>
+    <meta charset="utf-8" />
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Services.js"></script>
+    <script src="../Demo.js"></script>
+</head>
+<body>
+<tbody ng-controller="ShoppingCartController">
+<div class="class" style="background-color:cornflowerblue">
+    <img src="thecompanyburger_hero_2880x2304.jpg" align="left" width="1200" height="300" />
+</div>
+    
+<form>
+    <table class="table table-hover table-striped" cellspacing="40" align="center" style="width:95%">
+        <thead class="grid-top panel">
+        <tr>
+           
+            <th>PRODUCT NAME</th>               
+            <th>PRODUCT DESCRIPTION</th>
+            <th>PRODUCT TYPE</th>
+            <th>PRICE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="prd in Product | filter : searchproduct">
+           
+            <td>{{prd.Productname}}</td>
+            <td>{{prd.ProductDescription}}</td>
+            <td>{{prd.ProductType}}</td>
+            <td><h4>{{prd.Price | currency : "R"}}</h4></td>
+            <td><button ng-click="addItem(prd)" class="btn btn-success">AddToCart</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <!--SHOPPING CART--> 
+   
+    <div class="col-md-6">
+        <h2>SHOPPING CART LIST</h2>
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                
+                <th>PRODUCT ID</th>
+                <th>PRODUCT NAME</th>
+                <th>PRICE</th>
+                <th>QUANTITY</th>
+            </tr>
+            </thead>
+            <tbody id="ok">
+            <tr ng-repeat="myItem in myItems">
+                
+                <td>{{ myItem.ProId }}</td>
+                <td>{{ myItem.Productname }}</td>
+                <td>{{ myItem.Price| currency : "R"}}</td>
+                <td>{{ myItem.count }}</td>
+                <td>
+                    <button ng-click="removeItem($index)" ng-show="myItems.length>0" class="btn-sm btn-danger">Remove</button>
+                </td>
+
+            </tr>
+                
+            
+            
+
+            </tbody>
+        </table>
+        <span class="text-center" ng-show="myItems.length == 0">
+            There is nothing in your shopping cart.
+        </span>
+        <div class="clearfix">
+        <span class="pull-right alert ">Total Price: R {{ !totalPrice ? "0" : totalPrice | number:0 }}</span>
+        <button ng-click="removeBasket()" ng-show="myItems.length > 0" class="pull-left alert ">Clear cart</button>
+        
+    </div>
+</form>
+    <a href="#!ViewCart"><button class="btn-success">Go To cart</button></a>
+  
+
+</body>
+</html>

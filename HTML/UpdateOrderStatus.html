@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html ng-app="SignIn">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<div class="row" ng-controller="DriverViewOrdersController">
+    <div class="col-md-3 col-md-offset-1">
+        <h3 class="text-danger">Select Order</h3>
+        <hr />
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                {{selectedItems}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li ng-repeat="a in drOrds">
+                    <a ng-click="dropboxitemselected(a)">{{a.OrdId}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <form ng-show="isDeleteItemVisible">
+            <div class="form-group">
+                <label for="InputEmail">Total Price</label>
+                <input type="text" ng-model="totalPrice" class="form-control input-lg" placeholder="name" disabled />
+            </div>
+            <div class="form-group">
+                <label for="InputEmail"> CustomerAddress</label>
+                <input type="text" ng-model="CustomerAddress" class="form-control input-lg" placeholder="name" disabled />
+            </div>
+            <div class="form-group">
+                <label for="InputEmail">Customer ID</label>
+                <input type="text" ng-model="CustId" class="form-control input-lg" placeholder="name" disabled />
+            </div>
+            <div class="form-group">
+                <label for="OrderStatus">Order Status</label>
+                <input list="OrderStatus" ng-model="OrderStatus" name="Order Status" class="form-control input-lg" placeholder="Select an option" />
+                <datalist id="OrderStatus">
+                    <select name="OrderStatus">
+                        <option value="Ready for pick up">Ready for pick up</option>
+                    </select>
+                </datalist>
+            </div>
+            <button ng-click="statsUpdate()" class="btn btn-info form-control input-lg">Update Status</button>
+        </form>
+    </div>
+</div>
+</html>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html ng-app="SignIn">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Services.js"></script>
+    <script src="../Demo.js"></script>
+    
+ 
+
+</head>
+
+<body ng-controller="SearchRestuarantController">
+
+    <div class="col-md-6 col-md-offset-3">
+        <input type="search" placeholder='Search  for restaurants near you' align="center" class="form-control input-lg" ng-model="txtFilter" />
+        <br />
+    </div>
+    
+    <div class="row">
+        <form>
+            <table class="table table-hover general-table" cellspacing="40" align="center" style="width:80%">
+                <thead class="grid-top panel">
+                    <tr>
+                        <th>Image</th>
+                        <th>City</th>
+                        <th>Address</th>
+                        <th>Resname</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="Rest in Restaurant | filter : txtFilter">
+                        <td><img style="width:100px; height:100px" ng-src="{{'data:image/jpg/png/jpeg;base64,'+Rest.Image}}" class="img-rounded" /></td>
+                        <td>{{Rest.City}}</td>
+                        <td>{{Rest.Address}}</td>
+                        <td>{{Rest.Resname}}</td>
+                        <!--<h3><a href="#!AddRestuarantView">{{rest.Resname}}</a></h3>-->
+                        <!--<td><a href="#!AddRestaurant">  /></a></td>-->
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

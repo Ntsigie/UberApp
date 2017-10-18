@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<h2 class="text-center">View All Customers</h2>
+<html ng-app="SignIn">
+<head>
+    <title>View all customers</title>
+	<meta charset="utf-8" />
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Services.js"></script>
+    <script src="../Demo.js"></script>
+
+</head>
+<body ng-controller="ViewCustomersController">
+    <div class="col-md-6 col-md-offset-3">
+        <input type="search" placeholder="Search for customers" align="center" class="form-control input-lg" ng-model="txtFilter" />
+        <br />
+    </div>
+    <form>
+        <table class="table table-hover table-striped" cellspacing="40" align="center" style="width:95%">
+            <thead class="grid-top panel">
+                <tr>
+                    <th>CUSTID</th>       <!-- add image -->
+                    <th>FIRSTNAME</th>
+                    <th>LASTNAME</th>
+                    <th>EMAIL</th>
+                    <th>PASSWORD</th>
+                    <th>ADDRESS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cust in tblCustomer | filter : txtFilter">
+                    <td>{{cust.CustId}}</td>
+                    <td>{{cust.Firstname}}</td>
+                    <td>{{cust.Lastname}}</td>
+                    <td>{{cust.Email}}</td>
+                    <td>{{cust.Password}}</td>
+                    <td>{{cust.CustomerAddress}}</td>
+                  
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+</body>
+</html>

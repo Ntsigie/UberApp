@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<h2 class="text-center">Add Restaurant</h2>
+
+<head>
+    <title>Add Restaurant</title>
+    <meta charset="utf-8" />
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../Services.js"></script>
+    <script src="../Demo.js"></script>
+    
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div ng-controller="AddRestaurantController">
+                <form>
+
+                    <div class="form-group">
+                        <label for="City">City</label>
+                        <input type="text" ng-model="City" class="form-control input-lg" placeholder="City" />
+                    </div>
+                    
+                    
+                    
+                    <div class="form-group">
+                        <label for="Address">Address</label>
+                        <input type="text" ng-model="Address" class="form-control input-lg" placeholder="45 guevera Rd" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Resname">Resname</label>
+                        <input type="text" ng-model="Resname" class="form-control input-lg" placeholder="Restaurant Name" />
+                    </div>
+
+                  
+
+                    <div class="form-group">
+                        <label for="EmailAddress">EmailAddress</label>
+                        <input type="text" ng-model="EmailAddress" class="form-control input-lg" placeholder="Hope@gmail.com" />
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="PhoneNumber">PhoneNumber</label>
+                        <input type="text" ng-model="PhoneNumber" class="form-control input-lg" placeholder="0795684510" />
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label for="TypeOfCuisine">TypeOfCuisine</label>
+                        <input list="TypeOfCuisine" ng-model="Type_Of_Cuisine" name="TypeOfCuisine" class="form-control input-lg" placeholder="Select one option" />
+                        <datalist id="TypeOfCuisine">
+                            <select name="TypeOfCuisine">
+                                <option value="African">African</option>
+                                <option value="Burgers">Burgers</option>
+                                <option value="Chicken">Chicken</option>
+                                <option value="Italian">Italian</option>
+                                <option value="Greek">Greek</option>
+                            </select>
+                        </datalist>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="DoYouCurrentlyOfferDelivery">DoYouCurrentlyOfferDelivery</label>
+                        <input list="DoYouCurrentlyOfferDelivery" ng-model="Do_You_Currently_OfferDelivery" name="DoYouCurrentlyOfferDelivery" class="form-control input-lg" placeholder="Select one option" />
+                        <datalist id="DoYouCurrentlyOfferDelivery">
+                            <select name="DoYouCurrentlyOfferDelivery">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </datalist>
+                    </div>
+
+                    <div>
+                        <button ng-click="AddRes()" class="btn btn-info form-control input-lg">Add Restaurant </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+

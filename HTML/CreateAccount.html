@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<h2 class="text-center ">Create  User  Account</h2>
+
+<head>
+    <title>Create User Account</title>
+    <meta charset="utf-8" />
+   
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="../Scripts/angular-route.js"></script>
+    <script src="../Scripts/angular-route.min.js"></script>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <!--<link href="../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap.js"></script>-->
+    
+    
+  
+</head>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div ng-controller="UserController">
+            <form>
+                <div class="form-group">
+                    <label for="inputName">Firstname</label>
+                    <input type="text" ng-model="Firstname" class="form-control input-lg" placeholder="e.g Caroline" formmethod="post"   >
+                </div>
+                <div class="form-group">
+                    <label for="inputName">Lastname</label>
+                    <input type="text" ng-model="Lastname" class="form-control input-lg" placeholder="e.g Moloi " formmethod="post">
+                </div>
+               
+                <div class="form-group">
+                    <label for="inputName">CustomerAddress</label>
+                    <input type="text" ng-model="CustomerAddress" class="form-control input-lg" placeholder="e.g 67 Republic Rd Sandton" formmethod="post">
+                </div>
+                <div class="form-group">
+                    <label for="inputName">Email</label>
+                    <input type="email" ng-model="Email" class="form-control input-lg" placeholder="e.g Ntsebeng10@gmail.com" formmethod="post">
+                </div>
+                <div class="form-group">
+                    <label for="inputName">Password</label>
+                    <input type="password" ng-model="Password" class="form-control input-lg" placeholder="e.g Ncmoloi@gmail.com" formmethod="post">
+                </div>
+
+                <button ng-click="AdUser()" class="btn btn-info form-control input-lg">Register</button>
+            </form>           
+        </div>
+    </div>
+</div>
+<!-- #### -->    
